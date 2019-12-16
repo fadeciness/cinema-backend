@@ -3,12 +3,9 @@ package ru.rosbank.javaschool.cinema.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.rosbank.javaschool.cinema.entity.Film;
-import ru.rosbank.javaschool.cinema.entity.Ticket;
-import ru.rosbank.javaschool.cinema.enumeration.Genre;
+import ru.rosbank.javaschool.cinema.entity.FilmEntity;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -20,6 +17,7 @@ public class SessionSaveRequestDto {
     private boolean type3D;
     private Date date;
     private int priceInRub;
-    private Film film;
+    private FilmEntity filmEntity;
+//    private int film_id;
 
 }

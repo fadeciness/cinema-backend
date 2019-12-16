@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Ticket {
+public class TicketEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,14 +20,15 @@ public class Ticket {
     private int seat;
     private SeatStatus seatStatus;
 
+//    @ManyToOne(cascade = CascadeType.REMOVE)
     @ManyToOne
-    @JoinColumn(name = "session_id", referencedColumnName = "id")
-    private Session session;
+    @JoinColumn(name = "session_entity_id", referencedColumnName = "id")
+    private SessionEntity sessionEntity;
 
-    public Ticket(int line, int seat, SeatStatus seatStatus, Session session) {
+    public TicketEntity(int line, int seat, SeatStatus seatStatus, SessionEntity sessionEntity) {
         this.line = line;
         this.seat = seat;
         this.seatStatus = seatStatus;
-        this.session = session;
+        this.sessionEntity = sessionEntity;
     }
 }

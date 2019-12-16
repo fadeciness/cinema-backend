@@ -3,8 +3,7 @@ package ru.rosbank.javaschool.cinema.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.rosbank.javaschool.cinema.entity.Film;
-import ru.rosbank.javaschool.cinema.entity.Session;
+import ru.rosbank.javaschool.cinema.entity.FilmEntity;
 import ru.rosbank.javaschool.cinema.enumeration.Genre;
 
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmResponseDto {
+public class FilmDto {
 
     private int id;
     private String title;
@@ -21,8 +20,8 @@ public class FilmResponseDto {
     private String trailer;
     private List<Genre> genres;
 
-    public static FilmResponseDto from(Film model) {
-        return new FilmResponseDto(
+    public static FilmDto from(FilmEntity model) {
+        return new FilmDto(
                 model.getId(),
                 model.getTitle(),
                 model.getDescription(),

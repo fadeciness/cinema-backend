@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Film {
+public class FilmEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,35 +26,35 @@ public class Film {
     @ElementCollection
     private List<Genre> genres;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            mappedBy = "film"
-    )
-    private List<Session> sessions;
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            fetch = FetchType.EAGER,
+//            mappedBy = "filmEntity"
+//    )
+//    private List<SessionEntity> sessionEntities;
 
-    public Film(String title, String description, String image, String trailer, List<Genre> genres, List<Session> sessions) {
+//    public FilmEntity(String title, String description, String image, String trailer, List<Genre> genres, List<SessionEntity> sessionEntities) {
+    public FilmEntity(String title, String description, String image, String trailer, List<Genre> genres) {
         this.title = title;
         this.description = description;
         this.image = image;
         this.trailer = trailer;
         this.genres = genres;
-        this.sessions = sessions;
+//        this.sessionEntities = sessionEntities;
     }
 
-    public static Film from(FilmSaveRequestDto dto) {
-        return new Film(
+    public static FilmEntity from(FilmSaveRequestDto dto) {
+        return new FilmEntity(
                 dto.getId(),
                 dto.getTitle(),
                 dto.getDescription(),
                 dto.getImage(),
                 dto.getTrailer(),
-                dto.getGenres(),
-                null
+                dto.getGenres()
         );
     }
 
-    public void addSession(Session session) {
-        this.sessions.add(session);
-    }
+//    public void addSession(SessionEntity sessionEntity) {
+//        this.sessionEntities.add(sessionEntity);
+//    }
 }

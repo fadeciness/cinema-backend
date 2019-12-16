@@ -1,8 +1,8 @@
-###
+### просмотр списка фильмов
 
 GET {{url}}/films
 
-###
+### создание новой записи о фильме Garfield
 
 POST {{url}}/films
 Content-Type: application/json
@@ -10,13 +10,13 @@ Content-Type: application/json
 {
   "id": 0,
   "title": "Garfield",
-  "description": "Old good film with a animated fat cat",
+  "description": "Old good filmEntity with a animated fat cat",
   "image": null,
   "trailer": null,
   "genres": ["COMEDY", "ADVENTURE"]
 }
 
-###
+### создание новой записи о фильме Inception
 
 POST {{url}}/films
 Content-Type: application/json
@@ -30,17 +30,61 @@ Content-Type: application/json
   "genres": ["ACTION", "DRAMA"]
 }
 
-###
+### просмотр списка фильмов (успешное создание записей)
+
+GET {{url}}/films
+
+### создание дубликата записи о фильме Inception
+
+POST {{url}}/films
+Content-Type: application/json
+
+{
+  "id": 0,
+  "title": "Inception",
+  "description": "Action with walking in dreams",
+  "image": null,
+  "trailer": null,
+  "genres": ["ACTION", "DRAMA"]
+}
+
+### просмотр списка фильмов (успешное создание дубликата)
+
+GET {{url}}/films
+
+### удаление дубликата
 
 DELETE {{url}}/films/3
 
-###
+### просмотр списка фильмов (успешное удаление)
 
-GET {{url}}/films/2/sessions
+GET {{url}}/films
 
-###
+### изменение записи о фильме Garfield
 
-POST {{url}}/films/2/sessions
+POST {{url}}/films
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Garfield 2",
+  "description": "Old good filmEntity with a animated fat cat",
+  "image": null,
+  "trailer": null,
+  "genres": ["COMEDY", "ADVENTURE", "ACTION"]
+}
+
+### просмотр списка фильмов (успешное изменение)
+
+GET {{url}}/films
+
+### просмотр списка сеансов на фильм Inception
+
+GET {{url}}/sessions/2
+
+### создание нового вечернего сеанса на фильм Inception
+
+POST {{url}}/sessions/2
 Content-Type: application/json
 
 {
@@ -49,16 +93,113 @@ Content-Type: application/json
   "type3D": true,
   "date": "Sat, 21 Dec 2019 21:35:00 GMT",
   "priceInRub": 350,
-  "film": {
+  "filmEntity": {
     "id": 2,
     "title": "Inception",
     "description": "Action with walking in dreams",
     "image": null,
     "trailer": null,
-    "genres": ["ACTION", "DRAMA"],
-    "sessions": []
+    "genres": ["ACTION", "DRAMA"]
   }
 
 }
+
+### создание нового дневного сеанса на фильм Inception
+
+POST {{url}}/sessions/2
+Content-Type: application/json
+
+{
+  "id": 0,
+  "hallNumber": 1,
+  "type3D": false,
+  "date": "Sat, 21 Dec 2019 14:35:00 GMT",
+  "priceInRub": 100,
+  "filmEntity": {
+    "id": 2,
+    "title": "Inception",
+    "description": "Action with walking in dreams",
+    "image": null,
+    "trailer": null,
+    "genres": ["ACTION", "DRAMA"]
+  }
+
+}
+
+### просмотр списка сеансов на фильм Inception (успешное создание)
+
+GET {{url}}/sessions/2
+
+### изменение дневного сеанса на фильм Inception
+
+POST {{url}}/sessions/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "hallNumber": 2,
+  "type3D": false,
+  "date": "Sat, 21 Dec 2019 14:00:00 GMT",
+  "priceInRub": 100,
+  "filmEntity": {
+    "id": 2,
+    "title": "Inception",
+    "description": "Action with walking in dreams",
+    "image": null,
+    "trailer": null,
+    "genres": ["ACTION", "DRAMA"]
+  }
+
+}
+
+### просмотр списка сеансов на фильм Inception (успешное изменение)
+
+GET {{url}}/sessions/2
+
+### создание нового утреннего сеанса на фильм Inception
+
+POST {{url}}/sessions/2
+Content-Type: application/json
+
+{
+  "id": 0,
+  "hallNumber": 1,
+  "type3D": false,
+  "date": "Sat, 21 Dec 2019 10:15:00 GMT",
+  "priceInRub": 50,
+  "filmEntity": {
+    "id": 2,
+    "title": "Inception",
+    "description": "Action with walking in dreams",
+    "image": null,
+    "trailer": null,
+    "genres": ["ACTION", "DRAMA"]
+  }
+
+}
+
+### просмотр списка сеансов на фильм Inception (успешное создание)
+
+GET {{url}}/sessions/2
+
+### удаление утреннего сеанса
+
+DELETE {{url}}/sessions/2/3
+
+### просмотр списка сеансов на фильм Inception (успешное удаление)
+
+GET {{url}}/sessions/2
+
+### просмотр списка фильмов
+
+GET {{url}}/films
+
+### удаление фильма
+
+DELETE {{url}}/films/2
+
+### просмотр списка фильмов
+
+GET {{url}}/films
 
 ###

@@ -3,7 +3,7 @@ package ru.rosbank.javaschool.cinema.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.rosbank.javaschool.cinema.entity.Session;
+import ru.rosbank.javaschool.cinema.entity.FilmEntity;
 import ru.rosbank.javaschool.cinema.enumeration.Genre;
 
 import java.util.List;
