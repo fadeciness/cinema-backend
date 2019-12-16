@@ -1,0 +1,64 @@
+###
+
+GET {{url}}/films
+
+###
+
+POST {{url}}/films
+Content-Type: application/json
+
+{
+  "id": 0,
+  "title": "Garfield",
+  "description": "Old good film with a animated fat cat",
+  "image": null,
+  "trailer": null,
+  "genres": ["COMEDY", "ADVENTURE"]
+}
+
+###
+
+POST {{url}}/films
+Content-Type: application/json
+
+{
+  "id": 0,
+  "title": "Inception",
+  "description": "Action with walking in dreams",
+  "image": null,
+  "trailer": null,
+  "genres": ["ACTION", "DRAMA"]
+}
+
+###
+
+DELETE {{url}}/films/3
+
+###
+
+GET {{url}}/films/2/sessions
+
+###
+
+POST {{url}}/films/2/sessions
+Content-Type: application/json
+
+{
+  "id": 0,
+  "hallNumber": 1,
+  "type3D": true,
+  "date": "Sat, 21 Dec 2019 21:35:00 GMT",
+  "priceInRub": 350,
+  "film": {
+    "id": 2,
+    "title": "Inception",
+    "description": "Action with walking in dreams",
+    "image": null,
+    "trailer": null,
+    "genres": ["ACTION", "DRAMA"],
+    "sessions": []
+  }
+
+}
+
+###

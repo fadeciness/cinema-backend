@@ -3,6 +3,7 @@ package ru.rosbank.javaschool.cinema.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.rosbank.javaschool.cinema.dto.FilmSaveRequestDto;
 import ru.rosbank.javaschool.cinema.enumeration.Genre;
 
 import javax.persistence.*;
@@ -39,5 +40,21 @@ public class Film {
         this.trailer = trailer;
         this.genres = genres;
         this.sessions = sessions;
+    }
+
+    public static Film from(FilmSaveRequestDto dto) {
+        return new Film(
+                dto.getId(),
+                dto.getTitle(),
+                dto.getDescription(),
+                dto.getImage(),
+                dto.getTrailer(),
+                dto.getGenres(),
+                null
+        );
+    }
+
+    public void addSession(Session session) {
+        this.sessions.add(session);
     }
 }

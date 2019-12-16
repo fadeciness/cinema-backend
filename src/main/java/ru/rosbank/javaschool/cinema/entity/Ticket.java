@@ -18,16 +18,15 @@ public class Ticket {
     private int id;
     private int line;
     private int seat;
-    private int priceInRub;
     private SeatStatus seatStatus;
 
     @ManyToOne
+    @JoinColumn(name = "session_id", referencedColumnName = "id")
     private Session session;
 
-    public Ticket(int line, int seat, int priceInRub, SeatStatus seatStatus, Session session) {
+    public Ticket(int line, int seat, SeatStatus seatStatus, Session session) {
         this.line = line;
         this.seat = seat;
-        this.priceInRub = priceInRub;
         this.seatStatus = seatStatus;
         this.session = session;
     }

@@ -4,7 +4,6 @@ public enum Genre {
     COMEDY,
     CARTOON,
     ADVENTURE,
-    HORROR,
     ACTION,
     DRAMA,
     FANTASY,
