@@ -91,7 +91,7 @@ Content-Type: application/json
   "id": 0,
   "hallNumber": 1,
   "type3D": true,
-  "date": "Sat, 21 Dec 2019 21:35:00 GMT",
+  "date": 1576964100,
   "priceInRub": 350,
   "filmEntity": {
     "id": 2,
@@ -113,7 +113,7 @@ Content-Type: application/json
   "id": 0,
   "hallNumber": 1,
   "type3D": false,
-  "date": "Sat, 21 Dec 2019 14:35:00 GMT",
+  "date": 1576938600,
   "priceInRub": 100,
   "filmEntity": {
     "id": 2,
@@ -139,7 +139,7 @@ Content-Type: application/json
   "id": 2,
   "hallNumber": 2,
   "type3D": false,
-  "date": "Sat, 21 Dec 2019 14:00:00 GMT",
+  "date": 1576938600,
   "priceInRub": 100,
   "filmEntity": {
     "id": 2,
@@ -165,7 +165,7 @@ Content-Type: application/json
   "id": 0,
   "hallNumber": 1,
   "type3D": false,
-  "date": "Sat, 21 Dec 2019 10:15:00 GMT",
+  "date": 1576923300,
   "priceInRub": 50,
   "filmEntity": {
     "id": 2,

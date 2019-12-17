@@ -7,8 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.rosbank.javaschool.cinema.entity.SessionEntity;
 
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,7 +23,7 @@ public class SessionDto {
     private boolean type3D;
 
     @ApiModelProperty(position = 4)
-    private Date date;
+    private long date;
 
     @ApiModelProperty(position = 5)
     private int priceInRub;

@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import ru.rosbank.javaschool.cinema.dto.SessionSaveRequestDto;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -30,7 +29,7 @@ public class SessionEntity {
     private boolean type3D;
 
     @ApiModelProperty(position = 4)
-    private Date date;
+    private long date;
 
     @ApiModelProperty(position = 5)
     private int priceInRub;
