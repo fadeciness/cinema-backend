@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface SessionRepository extends JpaRepository<SessionEntity, Integer> {
 
-    List<SessionEntity> findAllByFilmEntityId(int filmEntity_id);
+    List<SessionEntity> findAllByFilmEntityId(int filmEntityId);
 
 }
