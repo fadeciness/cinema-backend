@@ -53,8 +53,19 @@ class SessionAndTicketServiceTest {
     }
 
     @Test
-    void saveSessionReturnFilmDtoWhenFilmSaveRequestDtoWasSuccessfulSaved() {
+    void saveSessionReturnFilmDtoWhenSessionSaveRequestDtoWasSuccessfulSaved() {
         SessionSaveRequestDto saveRequestDto = new SessionSaveRequestDto();
+        doReturn(SessionEntity.from(saveRequestDto)).when(sessionRepository).save(SessionEntity.from(saveRequestDto));
+
+        SessionDto result = service.saveSession(saveRequestDto);
+
+        assertEquals(SessionDto.from(SessionEntity.from(saveRequestDto)), result);
+    }
+
+    @Test
+    void saveSessionReturnFilmDtoWhenSessionSaveRequestDtoWasSuccessfulUpdated() {
+        SessionSaveRequestDto saveRequestDto = new SessionSaveRequestDto();
+        saveRequestDto.setId(1);
         doReturn(SessionEntity.from(saveRequestDto)).when(sessionRepository).save(SessionEntity.from(saveRequestDto));
 
         SessionDto result = service.saveSession(saveRequestDto);
