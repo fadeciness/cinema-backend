@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.rosbank.javaschool.cinema.constant.HallSize;
 import ru.rosbank.javaschool.cinema.dto.SessionDto;
 import ru.rosbank.javaschool.cinema.dto.SessionSaveRequestDto;
+import ru.rosbank.javaschool.cinema.dto.TicketDto;
 import ru.rosbank.javaschool.cinema.entity.SessionEntity;
 import ru.rosbank.javaschool.cinema.entity.TicketEntity;
 import ru.rosbank.javaschool.cinema.enumeration.SeatStatus;
@@ -77,13 +78,15 @@ public class SessionAndTicketService {
         sessionRepository.deleteById(id);
     }
 
-    public List<TicketEntity> getAllTicketsBySessionId(int id) {
-        return ticketRepository.findAllBySessionEntity_Id(id);
+    public List<TicketDto> getAllTicketsBySessionId(int id) {
+        return ticketRepository.findAllBySessionEntity_Id(id).stream()
+                .map(TicketDto::from)
+                .collect(Collectors.toList());
     }
 
-    public TicketEntity updateTicketStatusById(int id) {
+    public TicketDto updateTicketStatusById(int id) {
         TicketEntity ticketEntity = ticketRepository.findById(id).orElseThrow(TicketNotFoundException::new);
         ticketEntity.setSeatStatus(SeatStatus.TAKEN);
-        return ticketRepository.save(ticketEntity);
+        return TicketDto.from(ticketRepository.save(ticketEntity));
     }
 }

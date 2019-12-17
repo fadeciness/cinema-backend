@@ -182,6 +182,31 @@ Content-Type: application/json
 
 GET {{url}}/sessions/2
 
+
+
+
+
+### получение списка билетов на утренний сеанс фильма Inception
+
+GET {{url}}/sessions/2/3/tickets
+
+### изменение состояния билета на КУПЛЕНО
+
+POST {{url}}/sessions/2/3/tickets/21
+Content-Type: application/json
+
+{
+
+}
+
+### получение списка билетов на утренний сеанс фильма Inception
+
+GET {{url}}/sessions/2/3/tickets
+
+
+
+
+
 ### удаление утреннего сеанса
 
 DELETE {{url}}/sessions/2/3
@@ -198,8 +223,12 @@ GET {{url}}/films
 
 DELETE {{url}}/films/2
 
-### просмотр списка фильмов
+### просмотр списка фильмов (успешное удаление)
 
 GET {{url}}/films
+
+### просмотр списка сеансов на удаленный фильм Inception (успешное удаление)
+
+GET {{url}}/sessions/2
 
 ###

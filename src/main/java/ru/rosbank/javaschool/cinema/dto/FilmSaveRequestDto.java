@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.rosbank.javaschool.cinema.entity.FilmEntity;
+import ru.rosbank.javaschool.cinema.entity.SessionEntity;
 import ru.rosbank.javaschool.cinema.enumeration.Genre;
 
 import java.util.List;
@@ -19,5 +20,6 @@ public class FilmSaveRequestDto {
     private String image;
     private String trailer;
     private List<Genre> genres;
+    private List<SessionEntity> sessions;
 
 }

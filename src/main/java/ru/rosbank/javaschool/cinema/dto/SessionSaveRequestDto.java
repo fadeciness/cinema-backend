@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.rosbank.javaschool.cinema.entity.FilmEntity;
+import ru.rosbank.javaschool.cinema.entity.TicketEntity;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,6 +20,7 @@ public class SessionSaveRequestDto {
     private Date date;
     private int priceInRub;
     private FilmEntity filmEntity;
+    private List<TicketEntity> tickets;
 //    private int film_id;
 
 }

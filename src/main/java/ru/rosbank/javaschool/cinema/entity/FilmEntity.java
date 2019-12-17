@@ -26,22 +26,22 @@ public class FilmEntity {
     @ElementCollection
     private List<Genre> genres;
 
-//    @OneToMany(
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.EAGER,
-//            mappedBy = "filmEntity"
-//    )
-//    private List<SessionEntity> sessionEntities;
+    @OneToMany(
+            cascade = CascadeType.REMOVE,
+            fetch = FetchType.EAGER,
+            mappedBy = "filmEntity"
+    )
+    private List<SessionEntity> sessionEntities;
 
 //    public FilmEntity(String title, String description, String image, String trailer, List<Genre> genres, List<SessionEntity> sessionEntities) {
-    public FilmEntity(String title, String description, String image, String trailer, List<Genre> genres) {
-        this.title = title;
-        this.description = description;
-        this.image = image;
-        this.trailer = trailer;
-        this.genres = genres;
+//    public FilmEntity(String title, String description, String image, String trailer, List<Genre> genres) {
+//        this.title = title;
+//        this.description = description;
+//        this.image = image;
+//        this.trailer = trailer;
+//        this.genres = genres;
 //        this.sessionEntities = sessionEntities;
-    }
+//    }
 
     public static FilmEntity from(FilmSaveRequestDto dto) {
         return new FilmEntity(
@@ -50,7 +50,8 @@ public class FilmEntity {
                 dto.getDescription(),
                 dto.getImage(),
                 dto.getTrailer(),
-                dto.getGenres()
+                dto.getGenres(),
+                dto.getSessions()
         );
     }
 

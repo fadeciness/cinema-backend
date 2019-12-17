@@ -28,22 +28,22 @@ public class SessionEntity {
     @JoinColumn(name = "film_entity_id", referencedColumnName = "id")
     private FilmEntity filmEntity;
 
-//    @OneToMany(
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.EAGER,
-//            mappedBy = "sessionEntity"
-//    )
-//    private List<TicketEntity> ticketEntities;
+    @OneToMany(
+            cascade = CascadeType.REMOVE,
+            fetch = FetchType.EAGER,
+            mappedBy = "sessionEntity"
+    )
+    private List<TicketEntity> ticketEntities;
 
 //    public SessionEntity(int hallNumber, boolean type3D, Date date, int priceInRub, FilmEntity filmEntity, List<TicketEntity> ticketEntities) {
-    public SessionEntity(int hallNumber, boolean type3D, Date date, int priceInRub, FilmEntity filmEntity) {
-        this.hallNumber = hallNumber;
-        this.type3D = type3D;
-        this.date = date;
-        this.priceInRub = priceInRub;
-        this.filmEntity = filmEntity;
+//    public SessionEntity(int hallNumber, boolean type3D, Date date, int priceInRub, FilmEntity filmEntity) {
+//        this.hallNumber = hallNumber;
+//        this.type3D = type3D;
+//        this.date = date;
+//        this.priceInRub = priceInRub;
+//        this.filmEntity = filmEntity;
 //        this.ticketEntities = ticketEntities;
-    }
+//    }
 
     public static SessionEntity from(SessionSaveRequestDto dto) {
         return new SessionEntity(
@@ -52,8 +52,8 @@ public class SessionEntity {
                 dto.isType3D(),
                 dto.getDate(),
                 dto.getPriceInRub(),
-                dto.getFilmEntity()
-//                null
+                dto.getFilmEntity(),
+                dto.getTickets()
         );
     }
 }

@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface TicketRepository extends JpaRepository<TicketEntity, Integer> {
 
-//    List<TicketEntity> findAllBySessionId(int session_id);
     List<TicketEntity> findAllBySessionEntity_Id(int session_id);
+
 }

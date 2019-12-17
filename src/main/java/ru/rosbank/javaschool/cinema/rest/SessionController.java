@@ -15,11 +15,6 @@ public class SessionController {
 
     private final SessionAndTicketService sessionAndTicketService;
 
-//    @GetMapping
-//    public List<SessionDto> getAll() {
-//        return sessionAndTicketService.getAllSessions();
-//    }
-
     @GetMapping("/{id}")
     public List<SessionDto> getSessionsByFilmId(@PathVariable int id) {
         return sessionAndTicketService.getSessionsByFilmId(id);
@@ -36,12 +31,12 @@ public class SessionController {
     }
 
     @GetMapping("/{id}/{session_id}/tickets")
-    public List<TicketEntity> getAllTicketsBySessionId(@PathVariable(name = "session_id") int id) {
+    public List<TicketDto> getAllTicketsBySessionId(@PathVariable(name = "session_id") int id) {
         return sessionAndTicketService.getAllTicketsBySessionId(id);
     }
 
     @PostMapping("/{id}/{session_id}/tickets/{ticket_id}")
-    public TicketEntity reserveSeat(@PathVariable(name = "ticket_id") int id) {
+    public TicketDto reserveSeat(@PathVariable(name = "ticket_id") int id) {
         return sessionAndTicketService.updateTicketStatusById(id);
     }
 
