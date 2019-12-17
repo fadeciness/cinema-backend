@@ -17,11 +17,13 @@ public class FilmsController {
 
     @GetMapping
     public List<FilmDto> getAll() {
+        System.out.println("Получить все фильмы");
         return filmService.getAll();
     }
 
     @PostMapping
     public FilmDto save(@RequestBody FilmSaveRequestDto dto) {
+        System.out.println("Сохранить");
         return filmService.save(dto);
     }
 
