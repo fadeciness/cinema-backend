@@ -1,6 +1,7 @@
 package ru.rosbank.javaschool.cinema.enumeration;
 
 public enum Genre {
+
     COMEDY,
     CARTOON,
     ADVENTURE,
@@ -8,4 +9,5 @@ public enum Genre {
     DRAMA,
     FANTASY,
     FAMILY
+
 }

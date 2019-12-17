@@ -23,7 +23,6 @@ public class SessionEntity {
     private Date date;
     private int priceInRub;
 
-//    @ManyToOne(cascade = CascadeType.REMOVE)
     @ManyToOne
     @JoinColumn(name = "film_entity_id", referencedColumnName = "id")
     private FilmEntity filmEntity;
@@ -34,16 +33,6 @@ public class SessionEntity {
             mappedBy = "sessionEntity"
     )
     private List<TicketEntity> ticketEntities;
-
-//    public SessionEntity(int hallNumber, boolean type3D, Date date, int priceInRub, FilmEntity filmEntity, List<TicketEntity> ticketEntities) {
-//    public SessionEntity(int hallNumber, boolean type3D, Date date, int priceInRub, FilmEntity filmEntity) {
-//        this.hallNumber = hallNumber;
-//        this.type3D = type3D;
-//        this.date = date;
-//        this.priceInRub = priceInRub;
-//        this.filmEntity = filmEntity;
-//        this.ticketEntities = ticketEntities;
-//    }
 
     public static SessionEntity from(SessionSaveRequestDto dto) {
         return new SessionEntity(

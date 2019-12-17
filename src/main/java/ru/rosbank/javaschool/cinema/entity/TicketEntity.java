@@ -20,15 +20,8 @@ public class TicketEntity {
     private int seat;
     private SeatStatus seatStatus;
 
-//    @ManyToOne(cascade = CascadeType.REMOVE)
     @ManyToOne
     @JoinColumn(name = "session_entity_id", referencedColumnName = "id")
     private SessionEntity sessionEntity;
 
-//    public TicketEntity(int line, int seat, SeatStatus seatStatus, SessionEntity sessionEntity) {
-//        this.line = line;
-//        this.seat = seat;
-//        this.seatStatus = seatStatus;
-//        this.sessionEntity = sessionEntity;
-//    }
 }

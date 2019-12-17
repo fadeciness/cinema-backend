@@ -3,12 +3,8 @@ package ru.rosbank.javaschool.cinema.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.rosbank.javaschool.cinema.entity.SessionEntity;
 import ru.rosbank.javaschool.cinema.entity.TicketEntity;
 import ru.rosbank.javaschool.cinema.enumeration.SeatStatus;
-
-import javax.persistence.*;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,4 +24,5 @@ public class TicketDto {
                 model.getSeatStatus()
         );
     }
+
 }

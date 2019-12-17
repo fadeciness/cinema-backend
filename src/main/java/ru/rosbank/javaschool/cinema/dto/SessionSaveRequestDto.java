@@ -21,6 +21,5 @@ public class SessionSaveRequestDto {
     private int priceInRub;
     private FilmEntity filmEntity;
     private List<TicketEntity> tickets;
-//    private int film_id;
 
 }

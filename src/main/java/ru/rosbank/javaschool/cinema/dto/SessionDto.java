@@ -3,12 +3,9 @@ package ru.rosbank.javaschool.cinema.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.rosbank.javaschool.cinema.entity.FilmEntity;
 import ru.rosbank.javaschool.cinema.entity.SessionEntity;
-import ru.rosbank.javaschool.cinema.entity.TicketEntity;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @NoArgsConstructor

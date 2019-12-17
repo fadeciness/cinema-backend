@@ -33,16 +33,6 @@ public class FilmEntity {
     )
     private List<SessionEntity> sessionEntities;
 
-//    public FilmEntity(String title, String description, String image, String trailer, List<Genre> genres, List<SessionEntity> sessionEntities) {
-//    public FilmEntity(String title, String description, String image, String trailer, List<Genre> genres) {
-//        this.title = title;
-//        this.description = description;
-//        this.image = image;
-//        this.trailer = trailer;
-//        this.genres = genres;
-//        this.sessionEntities = sessionEntities;
-//    }
-
     public static FilmEntity from(FilmSaveRequestDto dto) {
         return new FilmEntity(
                 dto.getId(),
@@ -55,7 +45,4 @@ public class FilmEntity {
         );
     }
 
-//    public void addSession(SessionEntity sessionEntity) {
-//        this.sessionEntities.add(sessionEntity);
-//    }
 }

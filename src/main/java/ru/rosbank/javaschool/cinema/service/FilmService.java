@@ -32,13 +32,4 @@ public class FilmService {
         repository.deleteById(id);
     }
 
-//    public FilmDto getById(int id) {
-//        return FilmDto.from(repository.findById(id).orElseThrow(FilmNotFoundException::new));
-//    }
-//
-//    public FilmResponseDto save(FilmEntity model) {
-//        return FilmResponseDto.from(repository.save(model));
-//    }
-
-
 }

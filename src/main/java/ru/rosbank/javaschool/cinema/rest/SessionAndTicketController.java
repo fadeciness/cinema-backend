@@ -2,8 +2,9 @@ package ru.rosbank.javaschool.cinema.rest;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.rosbank.javaschool.cinema.dto.*;
-import ru.rosbank.javaschool.cinema.entity.TicketEntity;
+import ru.rosbank.javaschool.cinema.dto.SessionDto;
+import ru.rosbank.javaschool.cinema.dto.SessionSaveRequestDto;
+import ru.rosbank.javaschool.cinema.dto.TicketDto;
 import ru.rosbank.javaschool.cinema.service.SessionAndTicketService;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/sessions")
-public class SessionController {
+public class SessionAndTicketController {
 
     private final SessionAndTicketService sessionAndTicketService;
 
