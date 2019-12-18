@@ -232,3 +232,12 @@ GET {{url}}/films
 GET {{url}}/sessions/2
 
 ###
+
+
+
+
+###
+
+GET {{url}}/films/1
+
+###

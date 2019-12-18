@@ -17,13 +17,16 @@ public class FilmsController {
 
     @GetMapping
     public List<FilmDto> getAll() {
-        System.out.println("Получить все фильмы");
         return filmService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public FilmDto getById(@PathVariable int id) {
+        return filmService.getById(id);
     }
 
     @PostMapping
     public FilmDto save(@RequestBody FilmSaveRequestDto dto) {
-        System.out.println("Сохранить");
         return filmService.save(dto);
     }
 
