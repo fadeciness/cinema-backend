@@ -36,7 +36,7 @@ public class SessionAndTicketController {
         return sessionAndTicketService.getAllTicketsBySessionId(id);
     }
 
-    @PostMapping("/{id}/{session_id}/tickets/{ticket_id}")
+    @DeleteMapping("/{id}/{session_id}/tickets/{ticket_id}")
     public TicketDto reserveSeat(@PathVariable(name = "ticket_id") int id) {
         return sessionAndTicketService.updateTicketStatusById(id);
     }
