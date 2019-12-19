@@ -8,10 +8,11 @@ import ru.rosbank.javaschool.cinema.dto.TicketDto;
 import ru.rosbank.javaschool.cinema.entity.SessionEntity;
 import ru.rosbank.javaschool.cinema.entity.TicketEntity;
 import ru.rosbank.javaschool.cinema.enumeration.SeatStatus;
-import ru.rosbank.javaschool.cinema.exception.BadRequestException;
+import ru.rosbank.javaschool.cinema.exception.FilmNotFoundException;
 import ru.rosbank.javaschool.cinema.repository.SessionRepository;
 import ru.rosbank.javaschool.cinema.repository.TicketRepository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,7 +84,9 @@ class SessionAndTicketServiceTest {
 
     @Test
     void getAllTicketsBySessionIdReturnEmptyListWhenRepoIsEmpty() {
-        int id = anyInt();
+        int id = 0;
+        doReturn(Optional.of(new SessionEntity())).when(sessionRepository).findById(id);
+        doReturn(Collections.emptyList()).when(ticketRepository).findAllBySessionEntity_Id(id);
 
         List<TicketDto> result = service.getAllTicketsBySessionId(id);
 
@@ -105,9 +108,9 @@ class SessionAndTicketServiceTest {
     @Test
     void updateTicketStatusByIdThrowsExceptionWhenNoSuchId() {
         int id = 0;
-        doThrow(BadRequestException.class).when(ticketRepository).findById(anyInt());
+        doThrow(FilmNotFoundException.class).when(ticketRepository).findById(anyInt());
         doReturn(Optional.of(new TicketEntity())).when(ticketRepository).findById(1);
 
-        assertThrows(BadRequestException.class, () -> service.updateTicketStatusById(id));
+        assertThrows(FilmNotFoundException.class, () -> service.updateTicketStatusById(id));
     }
 }

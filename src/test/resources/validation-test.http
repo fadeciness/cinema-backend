@@ -2,14 +2,14 @@
 
 GET {{url}}/films
 
-### создание новой записи о фильме Garfield
+### создание невалидной записи о фильме
 
 POST {{url}}/films
 Content-Type: application/json
 
 {
   "id": 0,
-  "title": "Garfield",
+  "title": null,
   "description": "Old good filmEntity with a animated fat cat",
   "image": null,
   "trailer": null,

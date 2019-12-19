@@ -12,7 +12,6 @@ public class ErrorResponseDto {
 
     private final int status;
     private final String message;
-    private final String translated;
     private final Map<String, List<String>> errors;
 
 }

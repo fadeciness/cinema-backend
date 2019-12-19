@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.rosbank.javaschool.cinema.dto.FilmDto;
 import ru.rosbank.javaschool.cinema.dto.FilmSaveRequestDto;
 import ru.rosbank.javaschool.cinema.entity.FilmEntity;
-import ru.rosbank.javaschool.cinema.exception.BadRequestException;
+import ru.rosbank.javaschool.cinema.exception.FilmNotFoundException;
 import ru.rosbank.javaschool.cinema.repository.FilmRepository;
 
 import javax.transaction.Transactional;
@@ -34,6 +34,6 @@ public class FilmService {
     }
 
     public FilmDto getById(int id) {
-        return FilmDto.from(repository.findById(id).orElseThrow(BadRequestException::new));
+        return FilmDto.from(repository.findById(id).orElseThrow(FilmNotFoundException::new));
     }
 }
