@@ -22,17 +22,18 @@ import java.util.List;
 public class FilmSaveRequestDto {
 
     @ApiModelProperty(position = 1)
-    @Min(value = 0, message = Errors.MIN_VALUE)
+    @Min(value = 0, message = Errors.MIN_VALUE_FILM_ID)
     private int id;
 
     @ApiModelProperty(position = 2)
-    @NotNull(message = Errors.NULL_VALUE)
-    @Size(max = 254, message = Errors.MAX_VALUE)
+    @NotNull(message = Errors.NULL_VALUE_FILM_TITLE)
+    @Size(min = 1, message = Errors.MIN_VALUE_FILM_TITLE)
+    @Size(max = 254, message = Errors.MAX_VALUE_FILM_TITLE)
     private String title;
 
     @ApiModelProperty(position = 3)
-    @NotNull(message = Errors.NULL_VALUE)
-    @Size(max = 254, message = Errors.MAX_VALUE)
+    @NotNull(message = Errors.NULL_VALUE_FILM_DESCRIPTION)
+    @Size(max = 254, message = Errors.MAX_VALUE_FILM_DESCRIPTION)
     private String description;
 
     @ApiModelProperty(position = 4)
@@ -42,8 +43,8 @@ public class FilmSaveRequestDto {
     private String trailer;
 
     @ApiModelProperty(position = 6)
-    @NotNull(message = Errors.NULL_VALUE)
-    @NotEmpty(message = Errors.EMPTY_VALUE)
+    @NotNull(message = Errors.NULL_VALUE_GENRES_LIST)
+    @NotEmpty(message = Errors.EMPTY_VALUE_GENRES_LIST)
     private List<Genre> genres;
 
     @ApiModelProperty(position = 7)

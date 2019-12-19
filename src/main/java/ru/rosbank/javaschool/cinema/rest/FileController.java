@@ -1,5 +1,6 @@
 package ru.rosbank.javaschool.cinema.rest;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class FileController {
     private final FileService service;
 
     @PostMapping("/multipart")
+    @ApiOperation(value = "Сохраняет переданный файл на диск")
     public UploadResponseDto uploadMultipart(@RequestParam MultipartFile file) {
         return service.save(file);
     }

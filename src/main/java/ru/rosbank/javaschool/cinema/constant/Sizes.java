@@ -6,5 +6,7 @@ public class Sizes {
     }
 
     public static final int HALLS_COUNT = 3;
+    public static final int LINES = 3;
+    public static final int SEATS_IN_LINE = 4;
 
 }

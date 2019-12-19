@@ -2,7 +2,7 @@ package ru.rosbank.javaschool.cinema.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.rosbank.javaschool.cinema.constant.HallSize;
+import ru.rosbank.javaschool.cinema.constant.Sizes;
 import ru.rosbank.javaschool.cinema.dto.SessionDto;
 import ru.rosbank.javaschool.cinema.dto.SessionSaveRequestDto;
 import ru.rosbank.javaschool.cinema.dto.TicketDto;
@@ -36,8 +36,8 @@ public class SessionAndTicketService {
     public SessionDto saveSession(SessionSaveRequestDto dto) {
         SessionEntity sessionEntity = sessionRepository.save(SessionEntity.from(dto));
         if (dto.getId() == 0) {
-            for (int line = 1; line <= HallSize.LINES; line++) {
-                for (int seat = 1; seat <= HallSize.SEATS_IN_LINE; seat++) {
+            for (int line = 1; line <= Sizes.LINES; line++) {
+                for (int seat = 1; seat <= Sizes.SEATS_IN_LINE; seat++) {
                     TicketEntity ticketEntity = new TicketEntity(
                             0,
                             line,
