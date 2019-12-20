@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
 
 class FileServiceTest {
 
-    String uploadPath = "c://tmp/0";
+    String uploadPath = "/0";
     private MultipartFile multipartFile;
 
     @BeforeEach
@@ -28,6 +28,9 @@ class FileServiceTest {
 
     @Test
     void initCreatesFolderWhenItNotExist() throws IOException {
+        if (Files.notExists(Paths.get(uploadPath))) {
+            Files.createDirectories(Paths.get(uploadPath));
+        }
         Files.delete(Paths.get(uploadPath));
         FileService service = new FileService(uploadPath);
         service.init();
