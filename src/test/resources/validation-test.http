@@ -2,224 +2,32 @@
 
 GET {{url}}/films
 
-### создание невалидной записи о фильме
+### невалидная запись о фильме
 
 POST {{url}}/films
 Content-Type: application/json
 
 {
-  "id": 0,
+  "id": -10,
   "title": null,
-  "description": "Old good filmEntity with a animated fat cat",
+  "description": null,
   "image": null,
   "trailer": null,
-  "genres": ["COMEDY", "ADVENTURE"]
+  "genres": null
 }
 
-### создание новой записи о фильме Inception
+### невалидная запись о фильме
 
 POST {{url}}/films
 Content-Type: application/json
 
 {
   "id": 0,
-  "title": "Inception",
-  "description": "Action with walking in dreams",
+  "title": "",
+  "description": "",
   "image": null,
   "trailer": null,
-  "genres": ["ACTION", "DRAMA"]
+  "genres": []
 }
-
-### просмотр списка фильмов (успешное создание записей)
-
-GET {{url}}/films
-
-### создание дубликата записи о фильме Inception
-
-POST {{url}}/films
-Content-Type: application/json
-
-{
-  "id": 0,
-  "title": "Inception",
-  "description": "Action with walking in dreams",
-  "image": null,
-  "trailer": null,
-  "genres": ["ACTION", "DRAMA"]
-}
-
-### просмотр списка фильмов (успешное создание дубликата)
-
-GET {{url}}/films
-
-### удаление дубликата
-
-DELETE {{url}}/films/3
-
-### просмотр списка фильмов (успешное удаление)
-
-GET {{url}}/films
-
-### изменение записи о фильме Garfield
-
-POST {{url}}/films
-Content-Type: application/json
-
-{
-  "id": 1,
-  "title": "Garfield 2",
-  "description": "Old good filmEntity with a animated fat cat",
-  "image": null,
-  "trailer": null,
-  "genres": ["COMEDY", "ADVENTURE", "ACTION"]
-}
-
-### просмотр списка фильмов (успешное изменение)
-
-GET {{url}}/films
-
-### просмотр списка сеансов на фильм Inception
-
-GET {{url}}/sessions/2
-
-### создание нового вечернего сеанса на фильм Inception
-
-POST {{url}}/sessions/2
-Content-Type: application/json
-
-{
-  "id": 0,
-  "hallNumber": 1,
-  "type3D": true,
-  "date": 1576964100,
-  "priceInRub": 350,
-  "filmEntity": {
-    "id": 2,
-    "title": "Inception",
-    "description": "Action with walking in dreams",
-    "image": null,
-    "trailer": null,
-    "genres": ["ACTION", "DRAMA"]
-  }
-
-}
-
-### создание нового дневного сеанса на фильм Inception
-
-POST {{url}}/sessions/2
-Content-Type: application/json
-
-{
-  "id": 0,
-  "hallNumber": 1,
-  "type3D": false,
-  "date": 1576938600,
-  "priceInRub": 100,
-  "filmEntity": {
-    "id": 2,
-    "title": "Inception",
-    "description": "Action with walking in dreams",
-    "image": null,
-    "trailer": null,
-    "genres": ["ACTION", "DRAMA"]
-  }
-
-}
-
-### просмотр списка сеансов на фильм Inception (успешное создание)
-
-GET {{url}}/sessions/2
-
-### изменение дневного сеанса на фильм Inception
-
-POST {{url}}/sessions/2
-Content-Type: application/json
-
-{
-  "id": 2,
-  "hallNumber": 2,
-  "type3D": false,
-  "date": 1576938600,
-  "priceInRub": 100,
-  "filmEntity": {
-    "id": 2,
-    "title": "Inception",
-    "description": "Action with walking in dreams",
-    "image": null,
-    "trailer": null,
-    "genres": ["ACTION", "DRAMA"]
-  }
-
-}
-
-### просмотр списка сеансов на фильм Inception (успешное изменение)
-
-GET {{url}}/sessions/2
-
-### создание нового утреннего сеанса на фильм Inception
-
-POST {{url}}/sessions/2
-Content-Type: application/json
-
-{
-  "id": 0,
-  "hallNumber": 1,
-  "type3D": false,
-  "date": 1576923300,
-  "priceInRub": 50,
-  "filmEntity": {
-    "id": 2,
-    "title": "Inception",
-    "description": "Action with walking in dreams",
-    "image": null,
-    "trailer": null,
-    "genres": ["ACTION", "DRAMA"]
-  }
-
-}
-
-### просмотр списка сеансов на фильм Inception (успешное создание)
-
-GET {{url}}/sessions/2
-
-### получение списка билетов на утренний сеанс фильма Inception
-
-GET {{url}}/sessions/2/3/tickets
-
-### изменение состояния билета на КУПЛЕНО
-
-DELETE {{url}}/sessions/2/3/tickets/36
-
-### получение списка билетов на утренний сеанс фильма Inception
-
-GET {{url}}/sessions/2/3/tickets
-
-### удаление утреннего сеанса
-
-DELETE {{url}}/sessions/2/3
-
-### просмотр списка сеансов на фильм Inception (успешное удаление)
-
-GET {{url}}/sessions/2
-
-### просмотр списка фильмов
-
-GET {{url}}/films
-
-### удаление фильма
-
-DELETE {{url}}/films/2
-
-### просмотр списка фильмов (успешное удаление)
-
-GET {{url}}/films
-
-### просмотр списка сеансов на удаленный фильм Inception (успешное удаление)
-
-GET {{url}}/sessions/2
-
-### получение FilmDto
-
-GET {{url}}/films/1
 
 ###
