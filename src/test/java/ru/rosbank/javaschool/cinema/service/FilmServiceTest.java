@@ -5,11 +5,13 @@ import org.junit.jupiter.api.Test;
 import ru.rosbank.javaschool.cinema.dto.FilmDto;
 import ru.rosbank.javaschool.cinema.dto.FilmSaveRequestDto;
 import ru.rosbank.javaschool.cinema.entity.FilmEntity;
+import ru.rosbank.javaschool.cinema.exception.FilmNotFoundException;
 import ru.rosbank.javaschool.cinema.repository.FilmRepository;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -63,5 +65,24 @@ class FilmServiceTest {
         doNothing().when(filmRepository).deleteById(anyInt());
 
         assertDoesNotThrow(() -> service.removeById(id));
+    }
+
+    @Test
+    void getByIdReturnFilmDtoWhenFilmEntityIsPresentInRepo() {
+        int id = 1;
+        FilmEntity entity = new FilmEntity();
+        doReturn(Optional.of(entity)).when(filmRepository).findById(id);
+
+        FilmDto result = service.getById(id);
+
+        assertEquals(FilmDto.from(entity), result);
+    }
+
+    @Test
+    void getByIdThrowExceptionWhenNoFilmWithSuchId() {
+        int id = 1;
+        doReturn(Optional.empty()).when(filmRepository).findById(id);
+
+        assertThrows(FilmNotFoundException.class, () -> service.getById(id));
     }
 }

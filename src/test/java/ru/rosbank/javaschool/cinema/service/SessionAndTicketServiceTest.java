@@ -9,6 +9,7 @@ import ru.rosbank.javaschool.cinema.entity.SessionEntity;
 import ru.rosbank.javaschool.cinema.entity.TicketEntity;
 import ru.rosbank.javaschool.cinema.enumeration.SeatStatus;
 import ru.rosbank.javaschool.cinema.exception.FilmNotFoundException;
+import ru.rosbank.javaschool.cinema.exception.SessionNotFoundException;
 import ru.rosbank.javaschool.cinema.repository.SessionRepository;
 import ru.rosbank.javaschool.cinema.repository.TicketRepository;
 
@@ -91,6 +92,14 @@ class SessionAndTicketServiceTest {
         List<TicketDto> result = service.getAllTicketsBySessionId(id);
 
         assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void getAllTicketsBySessionIdThrowExceptionWhenNoSessionWithSuchIdInRepo() {
+        int id = 0;
+        doReturn(Optional.empty()).when(sessionRepository).findById(id);
+
+        assertThrows(SessionNotFoundException.class, () -> service.getAllTicketsBySessionId(id));
     }
 
     @Test
