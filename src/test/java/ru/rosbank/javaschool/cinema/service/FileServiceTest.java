@@ -12,13 +12,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class FileServiceTest {
 
-    String uploadPath = "/0";
+    String uploadPath = "";
     private MultipartFile multipartFile;
 
     @BeforeEach
@@ -28,14 +29,12 @@ class FileServiceTest {
 
     @Test
     void initCreatesFolderWhenItNotExist() throws IOException {
-        if (Files.notExists(Paths.get(uploadPath))) {
-            Files.createDirectories(Paths.get(uploadPath));
-        }
-        Files.delete(Paths.get(uploadPath));
-        FileService service = new FileService(uploadPath);
+        String path = UUID.randomUUID().toString();
+        FileService service = new FileService(path);
         service.init();
 
         assertTrue(Files.exists(Paths.get(uploadPath)));
+        Files.delete(Paths.get(path));
     }
 
     @Test
