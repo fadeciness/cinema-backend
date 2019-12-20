@@ -13,39 +13,39 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/sessions")
+@RequestMapping("/sessions/{id}")
 public class SessionAndTicketController {
 
     private final SessionAndTicketService sessionAndTicketService;
 
-    @GetMapping("/{id}")
+    @GetMapping
     @ApiOperation(value = "Возвращает список сеансов на данный фильм по его ID")
     public List<SessionDto> getSessionsByFilmId(@PathVariable int id) {
         return sessionAndTicketService.getSessionsByFilmId(id);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping
     @ApiOperation(value = "Сохраняет запись о сеансе в репозиторий")
     public SessionDto saveSession(@Valid @RequestBody SessionSaveRequestDto dto) {
         return sessionAndTicketService.saveSession(dto);
     }
 
-    @DeleteMapping("/{id}/{session_id}")
+    @DeleteMapping("/{sessionId}")
     @ApiOperation(value = "Удаляет запись о сеансе по ID")
-    public void removeSessionById(@PathVariable(name = "session_id") int id) {
-        sessionAndTicketService.removeSessionById(id);
+    public void removeSessionById(@PathVariable int sessionId) {
+        sessionAndTicketService.removeSessionById(sessionId);
     }
 
-    @GetMapping("/{id}/{session_id}/tickets")
+    @GetMapping("/{sessionId}/tickets")
     @ApiOperation(value = "Возвращает список всех билетов на данный сеанс по его ID")
-    public List<TicketDto> getAllTicketsBySessionId(@PathVariable(name = "session_id") int id) {
-        return sessionAndTicketService.getAllTicketsBySessionId(id);
+    public List<TicketDto> getAllTicketsBySessionId(@PathVariable int sessionId) {
+        return sessionAndTicketService.getAllTicketsBySessionId(sessionId);
     }
 
-    @DeleteMapping("/{id}/{session_id}/tickets/{ticket_id}")
+    @DeleteMapping("/{sessionId}/tickets/{ticketId}")
     @ApiOperation(value = "Изменяет статус билета на \"Продано\"")
-    public TicketDto reserveSeat(@PathVariable(name = "ticket_id") int id) {
-        return sessionAndTicketService.updateTicketStatusById(id);
+    public TicketDto reserveSeat(@PathVariable int ticketId) {
+        return sessionAndTicketService.updateTicketStatusById(ticketId);
     }
 
 }
